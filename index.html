@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Last Word — Win Every Text Argument</title>
+  <meta name="description" content="Paste any text fight. AI writes your perfect comeback in three styles: savage, mature, petty." />
+  <meta property="og:title" content="Last Word — Win Every Text Argument" />
+  <meta property="og:description" content="AI writes your perfect text comeback. Three styles. One winner." />
+  <meta name="theme-color" content="#0a0a0a" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div class="grain"></div>
+
+  <header class="topbar">
+    <div class="masthead">
+      <span class="mast-rule"></span>
+      <span class="mast-issue">VOL. 01 · ISSUE 01 · APRIL 2026</span>
+      <span class="mast-rule"></span>
+    </div>
+    <div class="brand-row">
+      <span class="brand-mark">§</span>
+      <span class="brand-name">LAST&nbsp;WORD</span>
+      <span class="brand-tag">a tabloid for text fights</span>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="hero">
+      <h1 class="display">
+        Win<br />
+        <em>every</em><br />
+        argument.
+      </h1>
+      <p class="lede">
+        Paste the fight. AI delivers three closing arguments.
+        <span class="lede-tones">
+          <span class="tone-pill savage">savage</span>
+          <span class="tone-pill mature">mature</span>
+          <span class="tone-pill petty">petty</span>
+        </span>
+      </p>
+    </section>
+
+    <section class="composer">
+      <div class="composer-card">
+        <div class="field-group">
+          <label class="field-label" for="conversation">
+            <span class="label-num">01</span>
+            Paste what they said
+          </label>
+          <textarea
+            id="conversation"
+            placeholder='Them: "you&apos;re being dramatic, it&apos;s not a big deal"'
+            rows="5"
+          ></textarea>
+        </div>
+
+        <div class="field-group screenshot-group">
+          <input type="file" id="screenshot" accept="image/*" hidden />
+          <label for="screenshot" class="upload-btn">
+            <span class="upload-icon">⌐■_■</span>
+            <span class="upload-text">or upload a screenshot</span>
+          </label>
+          <div id="screenshot-preview" class="screenshot-preview"></div>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label">
+            <span class="label-num">02</span>
+            Who's texting you?
+            <span class="optional">— optional</span>
+          </label>
+          <div class="chip-row" id="chips">
+            <button type="button" class="chip" data-context="my ex">my ex</button>
+            <button type="button" class="chip" data-context="a friend">a friend</button>
+            <button type="button" class="chip" data-context="my boss">my boss</button>
+            <button type="button" class="chip" data-context="my mum or dad">a parent</button>
+            <button type="button" class="chip" data-context="a situationship">a situationship</button>
+            <button type="button" class="chip" data-context="a coworker">a coworker</button>
+            <button type="button" class="chip" data-context="a group chat">group chat</button>
+          </div>
+        </div>
+
+        <button id="generate" class="generate-btn">
+          <span class="generate-text">Deliver my closing argument</span>
+          <span class="generate-arrow">→</span>
+        </button>
+
+        <p class="error-msg" id="error" hidden></p>
+      </div>
+    </section>
+
+    <section id="loading" class="loading hidden" aria-hidden="true">
+      <div class="loading-card">
+        <div class="loader-ticker">
+          <span>READING THE ROOM</span>
+          <span>·</span>
+          <span>WEIGHING THE EVIDENCE</span>
+          <span>·</span>
+          <span>SHARPENING THE BLADE</span>
+          <span>·</span>
+          <span>READING THE ROOM</span>
+          <span>·</span>
+          <span>WEIGHING THE EVIDENCE</span>
+          <span>·</span>
+          <span>SHARPENING THE BLADE</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="results" class="results hidden">
+      <div class="results-headline">
+        <span class="results-rule"></span>
+        <span>THE VERDICT</span>
+        <span class="results-rule"></span>
+      </div>
+
+      <article class="reply-card" data-tone="savage">
+        <header class="reply-header">
+          <span class="tone-stamp">SAVAGE</span>
+          <span class="tone-desc">surgical · screenshot-safe</span>
+        </header>
+        <p class="reply-text"></p>
+        <div class="card-actions">
+          <button class="action copy">Copy</button>
+          <button class="action share">Share</button>
+        </div>
+      </article>
+
+      <article class="reply-card" data-tone="mature">
+        <header class="reply-header">
+          <span class="tone-stamp">MATURE</span>
+          <span class="tone-desc">therapist-approved · grown</span>
+        </header>
+        <p class="reply-text"></p>
+        <div class="card-actions">
+          <button class="action copy">Copy</button>
+          <button class="action share">Share</button>
+        </div>
+      </article>
+
+      <article class="reply-card" data-tone="petty">
+        <header class="reply-header">
+          <span class="tone-stamp">PETTY</span>
+          <span class="tone-desc">unhinged · do not actually send</span>
+        </header>
+        <p class="reply-text"></p>
+        <div class="card-actions">
+          <button class="action copy">Copy</button>
+          <button class="action share">Share</button>
+        </div>
+      </article>
+
+      <button id="reset" class="reset-btn">Start a new fight</button>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p class="disclaimer">
+      For entertainment only. Don't actually send the petty one. (Probably.)
+    </p>
+    <p class="credit">
+      Built with <a href="https://www.anthropic.com/claude" rel="noopener noreferrer">Claude</a>
+      · MIT licensed
+    </p>
+  </footer>
+
+  <script src="/script.js"></script>
+</body>
+</html>
